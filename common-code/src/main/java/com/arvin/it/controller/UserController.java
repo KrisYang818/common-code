@@ -28,4 +28,13 @@ public class UserController {
     public Result<Map<String, String>> login(@RequestBody User user) {
         return loginService.login(user);
     }
+
+    /**
+     * 推出登录
+     * @return
+     */
+    @PostMapping("/logout")
+    public Result<Object> logout() {
+        return loginService.logout();
+    }
 }

@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -26,6 +27,14 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private RedisCache redisCache;
 
+    /**
+     * 登录成功处理器：
+     * 实际上在UsernamePasswordAuthenticationFilter进行登录认证的时候，如果登录成功了是会调用AuthenticationSuccessHandler的方法
+     * 进行认证成功后的处理的，AuthenticationSuccessHandler就是登录成功处理器。
+     * 我们也可以自己去自定义成功处理器进行成功后的响应处理。
+     * @param user
+     * @return
+     */
     @Override
     public Result<Map<String, String>> login(User user) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword());
@@ -48,5 +57,17 @@ public class LoginServiceImpl implements LoginService {
         // 4、把完整的用户信息存入redis， userId作为key
         redisCache.setCacheObject("login:" + id.toString(), loginUser);
         return new Result<>(200, "success", map);
+    }
+
+    @Override
+    public Result<Object> logout() {
+        // 1、获取SecurityContextHolder中的用户ID
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        LoginUser user = (LoginUser) authentication.getPrincipal();
+
+        // 2、删除redis中登录用户信息
+        String redisKey = "login:" + user.getUser().getId();
+        redisCache.deleteObject(redisKey);
+        return new Result<>(200, "注销成功", null);
     }
 }
