@@ -1,6 +1,6 @@
 package com.arvin.it.config;
 
-import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
+import com.arvin.it.utils.FastJsonRedisSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
