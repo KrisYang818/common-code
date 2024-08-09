@@ -1,7 +1,7 @@
 package com.arvin.it.common;
 
 import com.arvin.it.config.RedisCache;
-import com.arvin.it.domain.LoginUser;
+import com.arvin.it.entity.LoginUser;
 import com.arvin.it.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.slf4j.Logger;

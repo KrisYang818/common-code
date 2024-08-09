@@ -15,4 +15,10 @@ public class Result<T> {
     private String msg;
 
     private T data;
+
+    public Result(T data) {
+        this.data = data;
+        this.code = 200;
+        this.msg = "success";
+    }
 }

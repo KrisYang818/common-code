@@ -1,6 +1,6 @@
 package com.arvin.it.servoce;
 
-import com.arvin.it.domain.User;
+import com.arvin.it.entity.User;
 import com.arvin.it.vo.Result;
 
 import java.util.Map;

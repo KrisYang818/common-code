@@ -1,5 +1,6 @@
-package com.arvin.it.domain;
+package com.arvin.it.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     
     // 主键
-    @TableId
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     
     // 用户名

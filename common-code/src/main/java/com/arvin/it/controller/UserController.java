@@ -1,6 +1,6 @@
 package com.arvin.it.controller;
 
-import com.arvin.it.domain.User;
+import com.arvin.it.entity.User;
 import com.arvin.it.servoce.LoginService;
 import com.arvin.it.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;

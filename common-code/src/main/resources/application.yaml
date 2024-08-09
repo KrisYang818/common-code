@@ -10,3 +10,18 @@ spring:
   redis:
     host: 192.168.0.104
     port: 6379
+  profiles:
+    active: dev
+
+# sql监控
+decorator:
+  datasource:
+    p6spy:
+      # 日志格式
+      log-format: "\ntime:%(executionTime) || sql:%(sql)\n"
+      # 自定义日志类
+      logging: custom
+      custom-appender-class: com.example.testinit.config.StdoutLogger
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

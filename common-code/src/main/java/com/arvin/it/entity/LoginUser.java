@@ -1,4 +1,4 @@
-package com.arvin.it.domain;
+package com.arvin.it.entity;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,7 +1,7 @@
 package com.arvin.it.common;
 
-import com.arvin.it.domain.LoginUser;
-import com.arvin.it.domain.User;
+import com.arvin.it.entity.LoginUser;
+import com.arvin.it.entity.User;
 import com.arvin.it.mapper.UserMapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
