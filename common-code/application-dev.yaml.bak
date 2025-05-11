@@ -1,18 +1,18 @@
-server:
+t server:
   port: 9091
-
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/common-code?characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:p6spy:mysql://localhost:3306/common-code?characterEncoding=utf-8&serverTimezone=UTC
     password: root
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
-    host: 192.168.0.104
+    host: 192.168.0.102
     port: 6379
-  profiles:
-    active: dev
-
+  security:
+    user:
+      name: admin
+      password: 123
 # sql监控
 decorator:
   datasource:
@@ -21,7 +21,4 @@ decorator:
       log-format: "\ntime:%(executionTime) || sql:%(sql)\n"
       # 自定义日志类
       logging: custom
-      custom-appender-class: com.example.testinit.config.StdoutLogger
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      custom-appender-class:  com.arvin.it.common.StdoutLogger

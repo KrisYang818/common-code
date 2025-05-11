@@ -1,7 +1,9 @@
 package com.arvin.it.controller;
 
+import com.arvin.it.common.log.LogOperation;
+import com.arvin.it.common.log.LogTypeEnum;
 import com.arvin.it.entity.User;
-import com.arvin.it.servoce.LoginService;
+import com.arvin.it.service.LoginService;
 import com.arvin.it.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 
     @Autowired
     private LoginService loginService;
@@ -25,6 +27,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
+    @LogOperation(type = LogTypeEnum.SYSTEM, value = "登录系统")
     public Result<Map<String, String>> login(@RequestBody User user) {
         return loginService.login(user);
     }

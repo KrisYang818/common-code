@@ -1,4 +1,4 @@
-package com.arvin.it.servoce;
+package com.arvin.it.service;
 
 import com.arvin.it.entity.User;
 import com.arvin.it.vo.Result;

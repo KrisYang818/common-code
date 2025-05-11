@@ -1,6 +1,6 @@
 package com.arvin.it.common;
 
-import com.arvin.it.config.RedisCache;
+import com.arvin.it.utils.RedisCache;
 import com.arvin.it.entity.LoginUser;
 import com.arvin.it.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
